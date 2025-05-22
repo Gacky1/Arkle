@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded',  function() {
     // Initialize Locomotive Scroll with optimized settings
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
-      smooth: !isMobile, // Disable smooth scroll on mobile
-      multiplier: isMobile ? 1 : 1.2,
+      smooth: !isMobile,
+      multiplier: 1,
       smartphone: {
         smooth: false,
         multiplier: 1,
@@ -38,40 +38,50 @@ document.addEventListener('DOMContentLoaded',  function() {
         touchMultiplier: 1
       },
       scrollFromAnywhere: false,
-      lerp: isMobile ? 0 : 0.1,
+      lerp: 0.1,
       class: 'is-revealed',
       reloadOnContextChange: true,
       touchMultiplier: 1,
       smoothMobile: false
     });
 
-    // Optimize scroll performance with passive listeners
-    window.addEventListener('scroll', function() {
-      if (isMobile) {
-        scroll.destroy();
-        return;
-      }
-      scroll.update();
-    }, { passive: true });
-
-    // Optimize resize performance
+    // Update scroll on window resize
     let resizeTimeout;
     window.addEventListener('resize', function() {
       if (resizeTimeout) {
         clearTimeout(resizeTimeout);
       }
       resizeTimeout = setTimeout(function() {
-        if (isMobile) {
-          scroll.destroy();
-        } else {
-          scroll.update();
-        }
+        scroll.update();
       }, 100);
     }, { passive: true });
 
-    // Initialize GSAP ScrollTrigger only if not mobile
+    // Initialize GSAP ScrollTrigger
     if (!isMobile) {
       gsap.registerPlugin(ScrollTrigger);
+      
+      // Create ScrollTrigger proxy
+      ScrollTrigger.scrollerProxy(document.body, {
+        scrollTop(value) {
+          return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+          };
+        }
+      });
+
+      // Update ScrollTrigger when locomotive scroll updates
+      scroll.on('scroll', ScrollTrigger.update);
+
+      // Tell ScrollTrigger to use these proxy methods
+      ScrollTrigger.defaults({
+        scroller: document.body
+      });
     }
     
     // Set current year in footer
@@ -162,11 +172,6 @@ document.addEventListener('DOMContentLoaded',  function() {
         }, 500);
       }
     });
-    
-    // Update ScrollTrigger when Locomotive Scroll updates (only if not mobile)
-    if (!isMobile) {
-      scroll.on('scroll', ScrollTrigger.update);
-    }
     
     // Scroll to anchor links smoothly (only if not mobile)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -454,14 +459,62 @@ document.addEventListener('DOMContentLoaded',  function() {
       });
     });
     
-    // Parallax Effects
-    document.querySelectorAll('[data-scroll-speed]').forEach(element => {
-      scroll.on('scroll', (instance) => {
-        const speed = parseFloat(element.getAttribute('data-scroll-speed'));
-        const yPos = instance.scroll.y * speed;
-        element.style.transform = `translateY(${yPos}px)`;
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        const isOpen = answer.style.maxHeight !== '';
+        
+        // Close all other FAQs first
+        faqQuestions.forEach(q => {
+          const a = q.nextElementSibling;
+          const i = q.querySelector('i');
+          if (q !== question) {
+            a.style.maxHeight = null;
+            a.style.padding = '0 1.5rem';
+            i.style.transform = 'rotate(0)';
+          }
+        });
+        
+        // Toggle current FAQ
+        if (isOpen) {
+          answer.style.maxHeight = null;
+          answer.style.padding = '0 1.5rem';
+          icon.style.transform = 'rotate(0)';
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          answer.style.padding = '0 1.5rem';
+          icon.style.transform = 'rotate(180deg)';
+        }
       });
     });
+
+    // Parallax Effects
+    if (!isMobile) {
+      const parallaxElements = document.querySelectorAll('[data-scroll-speed]');
+      
+      parallaxElements.forEach(element => {
+        const speed = parseFloat(element.getAttribute('data-scroll-speed'));
+        
+        ScrollTrigger.create({
+          trigger: element,
+          scroller: document.body,
+          start: 'top bottom',
+          end: 'bottom top',
+          onUpdate: (self) => {
+            const yPos = self.progress * speed * 100;
+            gsap.to(element, {
+              y: yPos,
+              duration: 0.1,
+              ease: 'none'
+            });
+          }
+        });
+      });
+    }
     
     // Contact Form Submission (if on contact page)
     const contactForm = document.getElementById('contactForm');
