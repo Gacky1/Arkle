@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Arkle Consultancy Private Limited - Your trusted partner in textile solutions since 2013, providing innovative consultancy services in Jaipur, Rajasthan.">
+  <title>About Us - Arkle Consultancy</title>
+  <link rel="icon" href="assets/Arkle Transparent.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Base styles */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #f8fafc;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      overflow: visible;
+      background-color: white;
+    }
+
+    .page-header {
+      position: relative;
+      z-index: 2;
+      background-color: rgb(0, 0, 0);
+    }
+
+    .page-header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .page-header-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-dark {
+      position: relative;
+      z-index: 1;
+      background-color: var(--primary);
+    }
+
+    .vision-mission-section {
+      position: relative;
+      z-index: 1;
+      background-color: var(--primary);
+    }
+
+    .vision-mission-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 23, 42, 0.95);
+      z-index: -1;
+    }
+
+    .team-section {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+    }
+
+    .timeline-section {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+    }
+
+    .core-values-section {
+      position: relative;
+      z-index: 1;
+      background-color: white;
+    }
+
+    .section-header {
+      position: relative;
+      z-index: 2;
+    }
+
+    .company-overview {
+      position: relative;
+      z-index: 1;
+    }
+
+    .company-image {
+      position: relative;
+      z-index: 1;
+    }
+
+    .company-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-overlay {
+      z-index: 2;
+    }
+
+    .timeline {
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader-container">
+    <div class="loader">
+      <span class="loader-text">ARKLE</span>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-text"><span class="accent">A</span>rkle</span>
+        <span class="logo-subtitle">Consultancy</span>
+      </a>
+      
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="why-choose-us.html" class="nav-link">Why Choose Us</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+        <a href="credentials.html" class="nav-link">Credentials</a>
+      </nav>
+      
+      <div class="menu-toggle">
+        <div class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <div class="mobile-menu-container">
+        <div class="close-menu">
+          <i class="fas fa-times"></i>
+        </div>
+        <nav class="nav-mobile">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About Us</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="products.html" class="nav-link">Products</a>
+          <a href="why-choose-us.html" class="nav-link">Why Choose Us</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link">Contact Us</a>
+          <a href="credentials.html" class="nav-link">Credentials</a>
+        </nav>
+        <div class="mobile-contact-info">
+          <p><i class="fas fa-phone-alt"></i> +91 9799003033</p>
+          <p><i class="fas fa-envelope"></i> arkle.cpl@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> 23, Raghu Vihar, Durgapura, Jaipur, Rajasthan 302018, India</p>
+        </div>
+        <div class="mobile-social">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <img src="https://theyarnbazaar.com/assets/images/blogs/textile-industry-in-india.webp" alt="Textile manufacturing">
+    </div>
+    <div class="container">
+      <h1>About Us</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">About Us</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Company Overview Section -->
+  <section class="section">
+    <div class="container">
+      <div class="company-overview">
+        <div class="company-image">
+          <img src="https://indiantextilejournal.com/wp-content/uploads/Boosting-Indias-Textile-Sector-Competitiveness.jpg" height="800" width="1200" alt="Company overview">
+        </div>
+        <div class="company-content">
+          <span class="section-tagline">Who We Are</span>
+          <h2>A Decade of Excellence in Textile Innovation</h2>
+          <p>Arkle Consultancy Pvt. Limited is a multi-dimensional consultancy and textile solutions provider, registered under the Companies Act 1956. Since our inception on 28 March 2013, we have built a reputation for delivering sharp, relevant, and tailored solutions to textile businesses across India and beyond.</p>
+          <p>Our team of experienced professionals is dedicated to driving growth, innovation, and value for our clients. We combine traditional textile expertise with modern technology to provide comprehensive solutions that meet the evolving needs of the industry.</p>
+          <div class="company-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="highlight-content">
+                <h4>Established Excellence</h4>
+                <p>Over 10 years of industry leadership and innovation</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="highlight-content">
+                <h4>Expert Team</h4>
+                <p>Dedicated professionals with extensive industry experience</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="highlight-content">
+                <h4>Global Reach</h4>
+                <p>Serving clients across India and international markets</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission Section -->
+  <section class="section bg-dark vision-mission-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline light">Our Vision & Mission</span>
+        <h2 class="section-title">Guiding Our Journey</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="vision-mission-grid">
+        <div class="vision-card">
+          <div class="card-icon">
+            <h3 style="display: inline;">Our Vision </h3><i class="fas fa-eye"></i>
+          </div>
+          <p>To be the most trusted partner for textile businesses, empowering them with cutting-edge solutions and sustainable practices.</p>
+        </div>
+        <br>
+        <br>
+        <div class="mission-card">
+          <div class="card-icon">
+            <h3 style="display: inline;">Our Mission </h3><i class="fas fa-bullseye"></i>
+          </div>
+          <ul class="mission-list">
+            <li><i class="fas fa-check"></i> Deliver innovative textile consultancy and manufacturing services</li>
+            <li><i class="fas fa-check"></i> Foster long-term partnerships built on trust and shared success</li>
+            <li><i class="fas fa-check"></i> Drive sustainable growth through responsible business practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="section core-values-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Our Core Values</span>
+        <h2 class="section-title">What Drives Us</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Integrity</h3>
+          <p>We conduct our business with honesty, transparency, and ethical practices.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>We continuously seek new solutions and embrace technological advancements.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>We are committed to eco-friendly practices and sustainable development.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Client Focus</h3>
+          <p>We prioritize our clients' success and build lasting relationships.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Excellence</h3>
+          <p>We strive for the highest quality in everything we do.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Global Perspective</h3>
+          <p>We embrace diversity and think globally in our approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+
+
+  <!-- Timeline Section
+  <section class="section timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Our Journey</span>
+        <h2 class="section-title">Milestones & Achievements</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2013</span>
+            <h3>Company Inception</h3>
+            <p>Arkle Consultancy Private Limited was established in Jaipur, Rajasthan.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2015</span>
+            <h3>Expansion of Services</h3>
+            <p>Launched comprehensive textile manufacturing consulting services.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2018</span>
+            <h3>Quality Excellence</h3>
+            <p>Implemented advanced quality control systems and standards.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2020</span>
+            <h3>Sustainability Focus</h3>
+            <p>Introduced eco-friendly practices and sustainable solutions.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2023</span>
+            <h3>Decade of Excellence</h3>
+            <p>Celebrating 10 years of innovation and client success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <div class="footer-logo">
+              <span class="accent">A</span>rkle
+              <span class="footer-logo-subtitle">Consultancy</span>
+            </div>
+            <p>Your trusted partner in premium textile solutions since 2013. Providing innovative consultancy services to the textile industry.</p>
+            <div class="footer-social">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>Contact Information</h3>
+            <ul>
+              <li><i class="fas fa-phone-alt"></i> <a href="tel:+919799003033">+91 9799003033</a></li>
+              <li><i class="fas fa-envelope"> </i> <a href="mailto:arkle.cpl@gmail.com">arkle.cpl@gmail.com</li></a>
+              <li><i class="fas fa-map-marker-alt"></i><a href="https://maps.app.goo.gl/UBsU6HhtrMqeyYgQ6">23, Raghu Vihar, Durgapura, Jaipur, Rajasthan 302018, India </a> </li>
+            </ul>
+          </div>
+          
+          <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Subscribe to receive updates on our latest services, products, and industry insights.</p>
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" placeholder="Your Email Address" required>
+                <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </form>
+            <div class="working-hours">
+              <h4>Working Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <p>Saturday: 9:00 AM - 1:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Arkle Consultancy Private Limited. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+ 

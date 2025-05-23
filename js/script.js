@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',  function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Handle page loader
   const loader = document.querySelector('.loader-container');
   
@@ -19,70 +19,6 @@ document.addEventListener('DOMContentLoaded',  function() {
   function initAnimations() {
     // Check if device is mobile
     const isMobile = window.innerWidth <= 767;
-    
-    // Initialize Locomotive Scroll with optimized settings
-    const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: !isMobile,
-      multiplier: 1,
-      smartphone: {
-        smooth: false,
-        multiplier: 1,
-        breakpoint: 767,
-        touchMultiplier: 1
-      },
-      tablet: {
-        smooth: false,
-        multiplier: 1,
-        breakpoint: 1024,
-        touchMultiplier: 1
-      },
-      scrollFromAnywhere: false,
-      lerp: 0.1,
-      class: 'is-revealed',
-      reloadOnContextChange: true,
-      touchMultiplier: 1,
-      smoothMobile: false
-    });
-
-    // Update scroll on window resize
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-      if (resizeTimeout) {
-        clearTimeout(resizeTimeout);
-      }
-      resizeTimeout = setTimeout(function() {
-        scroll.update();
-      }, 100);
-    }, { passive: true });
-
-    // Initialize GSAP ScrollTrigger
-    if (!isMobile) {
-      gsap.registerPlugin(ScrollTrigger);
-      
-      // Create ScrollTrigger proxy
-      ScrollTrigger.scrollerProxy(document.body, {
-        scrollTop(value) {
-          return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight
-          };
-        }
-      });
-
-      // Update ScrollTrigger when locomotive scroll updates
-      scroll.on('scroll', ScrollTrigger.update);
-
-      // Tell ScrollTrigger to use these proxy methods
-      ScrollTrigger.defaults({
-        scroller: document.body
-      });
-    }
     
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -164,15 +100,6 @@ document.addEventListener('DOMContentLoaded',  function() {
       });
     }
     
-    // Update Locomotive Scroll after all content is loaded
-    window.addEventListener('load', function() {
-      if (!isMobile) {
-        setTimeout(() => {
-          scroll.update();
-        }, 500);
-      }
-    });
-    
     // Scroll to anchor links smoothly (only if not mobile)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -183,11 +110,7 @@ document.addEventListener('DOMContentLoaded',  function() {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          if (isMobile) {
-            targetElement.scrollIntoView({ behavior: 'auto' });
-          } else {
-            scroll.scrollTo(targetElement);
-          }
+          targetElement.scrollIntoView({ behavior: isMobile ? 'auto' : 'smooth' });
         }
       });
     });
@@ -492,30 +415,6 @@ document.addEventListener('DOMContentLoaded',  function() {
       });
     });
 
-    // Parallax Effects
-    if (!isMobile) {
-      const parallaxElements = document.querySelectorAll('[data-scroll-speed]');
-      
-      parallaxElements.forEach(element => {
-        const speed = parseFloat(element.getAttribute('data-scroll-speed'));
-        
-        ScrollTrigger.create({
-          trigger: element,
-          scroller: document.body,
-          start: 'top bottom',
-          end: 'bottom top',
-          onUpdate: (self) => {
-            const yPos = self.progress * speed * 100;
-            gsap.to(element, {
-              y: yPos,
-              duration: 0.1,
-              ease: 'none'
-            });
-          }
-        });
-      });
-    }
-    
     // Contact Form Submission (if on contact page)
     const contactForm = document.getElementById('contactForm');
     
