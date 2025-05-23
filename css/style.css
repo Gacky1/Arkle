@@ -525,11 +525,12 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: var(--primary);
-  z-index: 1000;
+  z-index: 1001;
   transition: var(--transition-slow);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -541,6 +542,7 @@ ul {
   max-width: 400px;
   padding: 2rem;
   position: relative;
+  margin-top: 60px;
 }
 
 .close-menu {
@@ -557,6 +559,8 @@ ul {
   flex-direction: column;
   text-align: center;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1002;
 }
 
 .nav-mobile .nav-link {
@@ -565,6 +569,8 @@ ul {
   color: white;
   font-size: 1.2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-contact-info {
@@ -1390,6 +1396,24 @@ ul {
   
   .loader-bar {
     width: 120px;
+  }
+  
+  .navbar {
+    background-color: var(--primary);
+  }
+  
+  .navbar.scrolled {
+    background-color: var(--primary);
+  }
+  
+  .navbar.scrolled .nav-link {
+    color: white;
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
