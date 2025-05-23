@@ -107,8 +107,8 @@ ul {
   color: var(--light);
   letter-spacing: 0.5rem;
   margin-bottom: 1rem;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards, pulse 2s infinite;
+  opacity: 1;
+  animation: pulse 2s infinite;
 }
 
 .loader-bar {
@@ -137,17 +137,6 @@ ul {
   }
   100% {
     left: 100%;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -1387,6 +1376,16 @@ ul {
   
   .back-to-top {
     transition: opacity 0.3s ease !important;
+  }
+  
+  .loader-text {
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    opacity: 1;
+  }
+  
+  .loader-bar {
+    width: 120px;
   }
 }
 
