@@ -72,13 +72,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function handleScroll() {
       if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
+        if (navbar) {
+          navbar.classList.add('scrolled');
+        }
         if (backToTop) {
           backToTop.classList.add('active');
           backToTop.style.display = 'flex';
         }
       } else {
-        navbar.classList.remove('scrolled');
+        if (navbar) {
+          navbar.classList.remove('scrolled');
+        }
         if (backToTop) {
           backToTop.classList.remove('active');
           backToTop.style.display = 'none';
@@ -86,25 +90,25 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // // Use requestAnimationFrame for smooth scroll handling
-    // let ticking = false;
-    // window.addEventListener('scroll', function() {
-    //   if (!ticking) {
-    //     window.requestAnimationFrame(function() {
-    //       handleScroll();
-    //       ticking = false;
-    //     });
-    //     ticking = true;
-    //   }
-    // }, { passive: true });
+    // Use requestAnimationFrame for smooth scroll handling
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
     
-    // // Initial call
-    // handleScroll();
+    // Initial call to set correct state on page load
+    handleScroll();
     
     // Update on window resize
-    // window.addEventListener('resize', () => {
-    //   handleScroll();
-    // });
+    window.addEventListener('resize', () => {
+      handleScroll();
+    });
     
     // Back to top button with native smooth scroll
     if (backToTop) {
