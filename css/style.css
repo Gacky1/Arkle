@@ -11,6 +11,10 @@
   --transition: all 0.3s ease;
   --transition-slow: all 0.5s ease;
   --transition-bounce: all 0.6s ease;
+  --text-color: #334155;
+  --white: #ffffff;
+  --primary-color: #0f172a;
+  --secondary-color: #3b82f6;
 }
 
 * {
@@ -1667,4 +1671,237 @@ html, body {
   .cta-content h2 {
     font-size: 2rem;
   }
+}
+
+/* Products Page Styles */
+.products-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.products-intro p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.products-filter-advanced {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-bottom: 3rem;
+}
+
+.filter-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filter-header h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.products-grid-expanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card-detailed {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.product-card-detailed:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card-detailed:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-content {
+  padding: 2rem;
+}
+
+.product-category-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.product-content h3 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.product-features {
+  margin: 1.5rem 0;
+}
+
+.feature {
+  display: flex;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.feature-label {
+  font-weight: 600;
+  color: var(--primary-color);
+  min-width: 120px;
+}
+
+.feature-value {
+  color: var(--text-color);
+}
+
+/* Fix for scroll animations */
+[data-scroll] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.product-card-detailed {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-btn {
+    width: 100%;
+  }
+  
+  .products-grid-expanded {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation Classes */
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-scroll].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover Effects */
+.product-card-detailed .srv {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.product-card-detailed .srv:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card-detailed {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.product-card-detailed:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.product-card-detailed:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.product-card-detailed:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.product-card-detailed:nth-child(5) {
+  animation-delay: 0.8s;
 }
