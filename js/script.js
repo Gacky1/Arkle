@@ -86,8 +86,25 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Call initially
+    // // Use requestAnimationFrame for smooth scroll handling
+    // let ticking = false;
+    // window.addEventListener('scroll', function() {
+    //   if (!ticking) {
+    //     window.requestAnimationFrame(function() {
+    //       handleScroll();
+    //       ticking = false;
+    //     });
+    //     ticking = true;
+    //   }
+    // }, { passive: true });
+    
+    // // Initial call
+    // handleScroll();
+    
+    // Update on window resize
+    // window.addEventListener('resize', () => {
+    //   handleScroll();
+    // });
     
     // Back to top button with native smooth scroll
     if (backToTop) {
@@ -95,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         window.scrollTo({
           top: 0,
-          behavior: isMobile ? 'auto' : 'smooth'
+          behavior: 'smooth'
         });
       });
     }
