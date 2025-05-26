@@ -1,17 +1,3 @@
-// // Initialize Locomotive Scroll
-// const scroll = new LocomotiveScroll({
-//   el: document.querySelector('[data-scroll-container]'),
-//   smooth: true,
-//   multiplier: 1,
-//   lerp: 0.05
-// });
-
-// // Update scroll on window resize
-// window.addEventListener('resize', () => {
-//   scroll.update();
-// });
-
-// Gallery Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
