@@ -407,8 +407,8 @@ ul {
 }
 
 .logo-image {
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 65px;
   display: block;
   position: relative;
   z-index: 10000;
@@ -1362,7 +1362,7 @@ ul {
 }
 
   .logo-image {
-    width: 100px;
+    width: 80px;
     height: 50px;
   }
 
